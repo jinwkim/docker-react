@@ -1,0 +1,11 @@
+FROM node:alpine
+
+WORKDIR '/app'
+
+COPY package.json .
+RUN npm install
+
+# We used Docker Volumes to copy over files in docker-compose... OPTIONAL
+COPY . .
+
+CMD ["yarn", "start"]
