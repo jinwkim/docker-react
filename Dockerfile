@@ -14,7 +14,7 @@ RUN yarn build
 # RUN phase
 FROM nginx
 
-# for AWS Elastic Beanstalk to open up this port
+# for AWS Elastic Beanstalk to open up this port, nginx default 80
 EXPOSE 80
 
 COPY --from=0 /app/build /usr/share/nginx/html
