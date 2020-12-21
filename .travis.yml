@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+langauge: generic
+
+before_install:
+  - docker build -t jinwkim/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true jinwkim/docker-react yarn test -- --coverage
